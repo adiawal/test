@@ -4,7 +4,7 @@ pipeline {
         stage('Creating archive') {
             steps {
                 echo "Creating Archive"
-                sh ' ssh -i key1.pem -t "user@staplesstaging.craftww.com" "zip /tmp/abc abc.zip"'
+                sh ' ssh -i key1.pem -t "user@staplesstaging.craftww.com" "zip /tmp/abc /tmp/abc.zip"'
             }
         }
         
