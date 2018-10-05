@@ -1,9 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Example') {
+        stage('PullfromFTP') {
             steps {
-                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                echo "Fetching files from FTP server."
+                cp -rp /tmp/test.tar /tmp/test1.tar
             }
         }
     }
