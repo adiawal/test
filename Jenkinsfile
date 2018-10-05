@@ -1,11 +1,32 @@
 pipeline {
     agent any
     stages {
-        stage('PullfromFTP') {
+        stage('Creating archive') {
             steps {
-                echo "Fetching files from FTP server."
-                sh 'cp -rp /tmp/test.tar /tmp/test1.tar'
+                echo "Creating Archive"
+                sh ' ssh -i key1.pem -t "user@staplesstaging.craftww.com" "zip /tmp/abc abc.zip"'
             }
         }
+        
+        stage('Deploy_corpdmz.staples.com') {
+            steps {
+                echo "Depolying to corpdmz.staples.com"
+                sh ' ssh -i key1.pem -t "user@staplesstaging.craftww.com" "scp -i key2.pem /tmp/abc.zip user@corpdmz.staples.com:/tmp/abc.zip"'
+            }
+        }
+        stage('Deploy_preview.staples.com') {
+            steps {
+                echo "Deploying to preview.staples.com"
+                sh 'ssh -i key2.pem -t "user@corpdmz.staples.com" "scp -i key3.pem /tmp/abc.zip user@:/tmp/preview.staples.com'
+            }
+        }
+        stage('Unzipping') {
+            steps {
+                echo " Extracting arcive on preview.staples.com"
+                sh 'ssh -i key3.pem -t "user@preview.staples.com" " uzip /tmp/abc.zip'
+            }
+        }
+        
     }
 }
+
