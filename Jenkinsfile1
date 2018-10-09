@@ -12,7 +12,7 @@ pipeline {
         stage('Deploy_preview.staples.com') {
             steps {
                 echo "Deploying to preview.staples.com"
-                sh "sftp root@localhost << EOF1 put /tmp/test2.tar /tmp/test3.tar EOF1"
+                sh "sftp root@localhost <<EOF put /tmp/test2.tar /tmp/test3.tar EOF"
                 
             }
         }
