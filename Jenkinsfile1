@@ -5,7 +5,7 @@ pipeline {
        stage('Push to Artifactory') {
             steps {
                 echo "Uploading to Artifactory"
-                sh 'curl -uredku001:Hanuman6890 -T /tmp/2018_10_08_cd_test.zip "http://zrepo.staples.com/artifactory/craftworks-artifacts-local/2018_10_08_cd_test.zip"'
+                sh 'curl -uredku001:Hanuman6890 -T "/files/continuous-deploy-test/2018_10_08_cd_test.zip" "http://zrepo.staples.com/artifactory/craftworks-artifacts-local/2018_10_08_cd_test.zip"'
             }  
             
         }
