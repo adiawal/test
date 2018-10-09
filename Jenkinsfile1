@@ -1,1 +1,26 @@
-dsf
+
+pipeline {
+    agent any
+    stages {
+      
+      stage('Deploy_corpdmz.staples.com') {
+            steps {
+                echo "Depolying to corpdmz.staples.com"
+                sh 'sftp root@localhost:/tmp/test1.tar /tmp/test2.tar'
+            }
+        }
+        stage('Deploy_preview.staples.com') {
+            steps {
+                echo "Deploying to preview.staples.com"
+                sh 'sftp /tmp/test1.tar root@localhost:/tmp/test3.tar'
+            }
+        }
+        stage('Unzipping') {
+            steps {
+                echo " Extracting arcive on preview.staples.com"
+                sh 'tar -xf /tmp/test3.tar'
+            }
+        }
+        
+    }
+}
