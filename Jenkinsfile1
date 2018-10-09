@@ -12,7 +12,7 @@ pipeline {
         stage('Deploy_preview.staples.com') {
             steps {
                 echo "Deploying to preview.staples.com"
-                sh 'sftp /tmp/test1.tar root@localhost:/tmp/test3.tar'
+                sh 'sftp /tmp/test1.tar root@localhost:/tmp/'
             }
         }
         stage('Unzipping') {
