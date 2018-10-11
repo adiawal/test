@@ -2,10 +2,12 @@
 pipeline {
     agent any
     stages {
+        withCredentials([usernamePassword(credentialsId:'',usernameVariable:'root',passwordVariable:'12345')]){
         stage('corpdmz.staples.com') {
             steps {
                 echo "copying from corpdmz.staples.com"
                 sh 'sftp root@corpdmz.staples.com:/tmp/test1.tar ${WORKSPACE}/test2.tar'
+            }
             }
         }    
     }
