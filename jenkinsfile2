@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo "copying from corpdmz.staples.com"
                 withCredentials([usernamePassword(credentialsId:'corp-sftp',usernameVariable:'USERNAME',passwordVariable:'PASSWORD')]){
-                sh 'cd ${WORKSPACE} && lftp sftp://${USERNAME}:${PASSWORD}@corpdmz.staples.com -e "get /files/continuous-deploy-test/2018_10_08_cd_test.zip ;bye"'
+                sh  "cd ${WORKSPACE} && lftp sftp://${USERNAME}:${PASSWORD}@corpdmz.staples.com -e \"get /files/continuous-deploy-test/2018_10_08_cd_test.zip ;bye\""
             }
             }   
         } 
@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo "Uploading to artifactory"
                 withCredentials([usernamePassword(credentialsId:'cicd-publisher',usernameVariable:'ARTI_USERNAME',passwordVariable:'ARTI_PASSWORD')]){ 
-                sh '"curl -u ${ARTI_USERNAME}:${ARTI_PASSWORD}  -X PUT "http://zrepo.staples.com/artifactory/craftworks-artifacts-local/2018_10_08_cd_test.zip" ${WORKSPACE}/2018_10_08_cd_test.zip'
+                sh "curl -u ${ARTI_USERNAME}:${ARTI_PASSWORD}  -X PUT \"http://zrepo.staples.com/artifactory/craftworks-artifacts-local/2018_10_08_cd_test.zip\" ${WORKSPACE}/2018_10_08_cd_test.zip"
             }
             }
         }        
