@@ -5,7 +5,7 @@ pipeline {
         stage('corpdmz.staples.com') {
             steps {
                 echo "copying from corpdmz.staples.com"
-                withCredentials([usernamePassword(credentialsId:'test',usernameVariable:'root',passwordVariable:'12345')]){
+                withCredentials([usernamePassword(credentialsId:'958c6522-7c0d-4a59-bd03-15a6250a5d9f',usernameVariable:'root',passwordVariable:'12345')]){
                 sh 'sftp root@corpdmz.staples.com:/tmp/test1.tar ${WORKSPACE}/test2.tar'
             }
             }
