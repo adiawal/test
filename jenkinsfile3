@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+    stages {
+        stage('Get file from corpdmz.staples.com') {
+            steps {
+                echo "copying from corpdmz.staples.com"
+                withCredentials([usernamePassword(credentialsId:'corp-sftp',usernameVariable:'USERNAME',passwordVariable:'PASSWORD')]){
+                sh  "./test.sh"
+            }
+            }   
+        }         
+    }
+}
