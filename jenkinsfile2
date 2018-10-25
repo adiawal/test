@@ -19,7 +19,7 @@ pipeline {
             steps {
                 echo "Uploading to artifactory"
                 withCredentials([usernamePassword(credentialsId:'cicd-publisher',usernameVariable:'ARTI_USERNAME',passwordVariable:'ARTI_PASSWORD')]){ 
-                sh "curl -u ${ARTI_USERNAME}:${ARTI_PASSWORD}  -X PUT \"http://zrepo.staples.com/artifactory/craftworks-artifacts-local/2018_10_08_cd_test.zip\" ${WORKSPACE}/2018_10_08_cd_test.zip"
+                sh "curl -u ${ARTI_USERNAME}:${ARTI_PASSWORD}  -X PUT -T ${WORKSPACE}/2018_10_08_cd_test.zip \"http://zrepo.staples.com/artifactory/craftworks-artifacts-local/2018_10_08_cd_test.zip\" "
             }
             }
         }    
