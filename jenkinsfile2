@@ -6,10 +6,11 @@ pipeline {
             steps {
                 echo "copying from corpdmz.staples.com"
                 withCredentials([usernamePassword(credentialsId:'corp-sftp',usernameVariable:'USERNAME',passwordVariable:'PASSWORD')]){
-                sh  "cd ${WORKSPACE} && sshpass -p ${PASSWORD} sftp -oBatchMode=no -b - ${USERNAME}@corpdmz.staples.com
-                  cd /files/continuous-deploy-test
-                  get 2018_10_08_cd_test.zip
-                  bye << EOF"
+                sh  "cd ${WORKSPACE} && sshpass -p ${PASSWORD} sftp -oBatchMode=no -b - ${USERNAME}@corpdmz.staples.com <<EOF
+                     cd /files/continuous-deploy-test
+                     get 2018_10_08_cd_test.zip
+                     bye 
+                     EOF"
             }
             }   
         }         
