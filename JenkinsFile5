@@ -53,8 +53,8 @@ List determineProjectRepoBranchFromURL(repoURL) {
     String urlHost = repoURL.getHost()
     int urlPort = repoURL.getPort()
 
-    String projectName = ""
-    String repoName = ""
+    String projectName = "adiawal"
+    String repoName = "test"
 
     // If we recognize one of our Stash URLs then we know the structure to project/repo
     for ( url in AUTHORIZED_URLS ) {
@@ -101,13 +101,13 @@ String getPipelineBranch() {
     return branchName
 }
 
-String checkout = getCheckout(scm)
+String checkout = takeCheckout()
 
-String getCheckout (scmObj)
+String getCheckout (abc)
 {
 println "Checking out repository"
 node {
-checkout scmObj
+checkout abc
 }
 return 
 }
