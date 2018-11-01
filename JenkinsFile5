@@ -111,8 +111,6 @@ node {
 checkout scm
 sh 'git log -1 > result'
 }
-def lines = readFile('result').split("\r?\n")
-return lines
 }
 
 
