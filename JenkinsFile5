@@ -110,7 +110,7 @@ String getCheckout ()
 println "Checking out repository"
 checkout scm
 node {
-sh (script: 'git log -1') > log.out
+sh (script: 'git log -1 > log.out' )
 }
 def output = readFile('log.out').split("\r?\n")
 return output
