@@ -98,9 +98,6 @@ String getPipelineBranch() {
         println "using default branchName master"
         branchName = "master"
     }
-    
-    String checkout = getCheckout()
-
     return branchName
 }
 
@@ -109,10 +106,8 @@ String getCheckout ()
 println "Checking out repository"
 node {
 checkout scm
-sh 'git log -1 > result'
-def lines = readFile('result').split("\r?\n")
-return lines
 }
+return 
 }
 
 
