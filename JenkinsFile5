@@ -29,8 +29,6 @@ String projectName = projectRepoBranch[0]
 String repoName = projectRepoBranch[1]
 String branchName = projectRepoBranch[2]
 
-dynamicPipeline 'projectName': projectName , 'repoName': repoName, 'branchName': branchName
-
 List determineProjectRepoBranchFromScm(scmObj) {
     // Figure out our repo URL, projectName, repoName, and branchName from the scm obj we're given
     def repoObj = scmObj.getRepositories().get(0)
