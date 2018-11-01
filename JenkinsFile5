@@ -98,11 +98,16 @@ String getPipelineBranch() {
         println "using default branchName master"
         branchName = "master"
     }
+    
+    String checkout = getCheckout()
 
     return branchName
 }
 
-String getCheckout() {
-echo  'Checkout the repo'
+String getCheckout ()
+{
+println "Checkout repository"
+
 }
+
 
