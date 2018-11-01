@@ -48,7 +48,7 @@ List determineProjectRepoBranchFromScm(scmObj) {
 List determineProjectRepoBranchFromURL(repoURL) {
 
     List AUTHORIZED_URLS = [
-    	[host: "bitbucket.staples.com", port: 7999, ]
+    	[host: "github.com", port: 443, ]
     ]
 
     String urlPath = repoURL.getPath()
