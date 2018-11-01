@@ -48,7 +48,7 @@ List determineProjectRepoBranchFromScm(scmObj) {
 List determineProjectRepoBranchFromURL(repoURL) {
 
     List AUTHORIZED_URLS = [
-    	[host: "github.com", port: 443, ]
+    	[host: "https://github.com", port: "", ]
     ]
 
     String urlPath = repoURL.getPath()
