@@ -109,10 +109,9 @@ String getCheckout ()
 println "Checking out repository"
 node {
 checkout scm
-sh ('touch /tmp/abc.txt')
 }
-return "ABC"
+return env.GIT_COMMIT
+}
 
-}
 
 
