@@ -109,7 +109,10 @@ String getCheckout ()
 {
 println "Checking out repository"
 checkout scm
-def output = node { sh returnStdout: true, script: 'git log -1' }
+node {
+sh (script: 'git log -1') > log.out
+}
+def output = readFile('log.out').split("\r?\n")
 return output
 }
 
