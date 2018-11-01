@@ -101,3 +101,13 @@ String getPipelineBranch() {
 
     return branchName
 }
+
+
+String getCheckout() {
+node {
+stage 'Checkout the repo'
+sh ('git checkout urlHost/projectName/repoName')
+}
+
+}
+
