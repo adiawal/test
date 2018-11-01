@@ -103,7 +103,6 @@ String getPipelineBranch() {
 }
 
 String getCheckout() {
-println 'Checkout the repo'
-sh ('git checkout urlHost/projectName/repoName')
+echo  'Checkout the repo'
 }
 
