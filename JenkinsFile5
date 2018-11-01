@@ -101,7 +101,7 @@ String getPipelineBranch() {
     return branchName
 }
 
-String checkout = getcheckout(scm)
+String checkout = getCheckout(scm)
 
 String getCheckout (scmObj)
 {
