@@ -110,9 +110,9 @@ String getCheckout ()
 println "Checking out repository"
 node {
 checkout scm
-def commit_message=sh(script :'git log -1', returnStdout: true).split("\r?\n")
+def lines = sh(script: 'git log -1', returnStdout: true).split("\r?\n")
 }
-return commit_message
+return lines
 }
 
 
