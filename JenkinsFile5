@@ -107,7 +107,7 @@ String getPipelineBranch() {
 String getCheckout ()
 {
 println "Checkout repository"
-
+return "Hello"
 }
 
 
