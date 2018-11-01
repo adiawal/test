@@ -100,7 +100,6 @@ String getPipelineBranch() {
     }
     
     String checkout = getCheckout()
-    println checkout
 
     return branchName
 }
