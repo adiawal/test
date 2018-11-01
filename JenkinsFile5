@@ -107,8 +107,12 @@ String getPipelineBranch() {
 String getCheckout ()
 {
 println "Checking out repository"
+node {
 checkout scm
-return "abc"
+sh 'git log -1 > result'
+def lines = readFile('result').split("\r?\n")
+}
+return lines
 }
 
 
