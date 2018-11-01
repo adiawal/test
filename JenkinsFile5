@@ -110,8 +110,9 @@ String getCheckout ()
 println "Checking out repository"
 node {
 checkout scm
+String commit_message=sh('git log -1')
 }
-return env.GIT_COMMIT
+return commit_message
 }
 
 
