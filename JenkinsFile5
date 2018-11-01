@@ -60,7 +60,7 @@ List determineProjectRepoBranchFromURL(repoURL) {
 
     // If we recognize one of our Stash URLs then we know the structure to project/repo
     for ( url in AUTHORIZED_URLS ) {
-        if ( urlHost == url['host'] && urlPort == url['port'] ) {
+        if ( urlHost == url['host'] ) {
             m = urlPath =~ /(?:(?<projectName>[^\/]+)\/)?(?<repoName>[^\/]+)\.git$/
             assert m instanceof Matcher
             if (m) {
