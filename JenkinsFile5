@@ -109,8 +109,8 @@ String getCheckout ()
 {
 println "Checking out repository"
 checkout scm
-def lines = sh(script: 'git log -1', returnStdout: true).split("\r?\n")
-return lines
+def output = sh returnStdout: true, script: 'ls -l'
+return output
 }
 
 
