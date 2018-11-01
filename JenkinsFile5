@@ -54,7 +54,7 @@ List determineProjectRepoBranchFromURL(repoURL) {
     int urlPort = repoURL.getPort()
 
     String projectName = "adiawal"
-    String repoName = "test"
+    String repoName = "test1"
 
     // If we recognize one of our Stash URLs then we know the structure to project/repo
     for ( url in AUTHORIZED_URLS ) {
